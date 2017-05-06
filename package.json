@@ -17,7 +17,6 @@
   "bugs": {
     "url": "https://github.com/accimeesterlin/burger/issues"
   },
-
   "homepage": "https://github.com/accimeesterlin/burger#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
@@ -26,7 +25,7 @@
     "method-override": "^2.3.8",
     "mysql": "^2.13.0"
   },
-  "engines": {
-    "node": "7.8.0"
+  "engines":{
+    "node":"6.9.4"
   }
 }

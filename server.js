@@ -1,27 +1,25 @@
-
-// Dependencies
 var express = require("express"),
-    methodOverride = require("method-override"),
-    bodyParser = require("body-parser");
+	methodOverride = require("method-override"),
+	bodyParser = require("body-parser"),
+	handlebars = require("express-handlebars");
 
-var port = process.env.PORT || 8080;
 
-var app = express();
+var app = express(),
+	port = process.env.PORT || 8080;
 
 app.use(express.static(process.cwd() + "/public"));
 
-app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(methodOverride("_method"));
 
-var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main"}));
+
+app.engine("handlebars", handlebars({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
-var routes = require("./controllers/burgers_controllers");
+require("./controllers/burgerControllers")(app);
 
-app.use("/", routes);
 
 app.listen(port);
